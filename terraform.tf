@@ -12,5 +12,5 @@ resource "aws_db_instance" "default" {
   password             = "iamsolame"
   parameter_group_name = "default.mysql5.7"
   skip_final_snapshot  = true
-  publicly_accessible = true
+  publicly_accessible  = true
 }

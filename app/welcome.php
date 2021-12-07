@@ -1,6 +1,6 @@
 <?php
 
-$conn = new mysqli($_ENV["dbhost"], $_ENV["dbuser"], $_ENV["dbpassword"], $_ENV["dbname"]);
+$conn = new mysqli($_ENV["dbhost"], $_ENV["dbuser"], $_ENV["dbpass"], $_ENV["dbname"]);
 
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
@@ -14,7 +14,7 @@ email VARCHAR(50),
 reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)";
 
 if ($conn->query($sql) === TRUE) {
-  echo "All your DB:" . "<br>";
+  echo "All your DB records:" . "<br>";
 } else {
   echo "Error creating table: " . $conn->error;
 }
