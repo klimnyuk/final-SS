@@ -20,10 +20,6 @@ variable "dbuser" {
     type    = string
 }
 
-variable "dbpass" {
-    type    = string
-}
-
 variable "dbname" {
     type    = string
 }
@@ -33,3 +29,7 @@ variable "port" {
 }
 
 variable "zones_count" {}
+
+variable "dbpass" {
+  type    = string
+}

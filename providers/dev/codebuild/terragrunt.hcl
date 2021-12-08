@@ -19,14 +19,7 @@ dependency "init" {
   }
 }
 
-locals {
-  secrets = read_terragrunt_config(find_in_parent_folders("secrets.hcl"))
-}
-
-inputs = merge (
-  local.secrets.inputs,
-  {
+inputs = {
   build_spec_file = "providers/dev/buildspec.yml"
   rds_database_url = dependency.init.outputs.rds_database_url
 }
-)

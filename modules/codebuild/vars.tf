@@ -6,10 +6,6 @@ variable "dbuser" {
     type    = string
 }
 
-variable "dbpass" {
-    type    = string
-}
-
 variable "dbname" {
     type    = string
 }
@@ -38,4 +34,8 @@ variable "env" {
 
 variable "branch_pattern" {
   type = string
+}
+
+variable "dbpass" {
+  type    = string
 }
