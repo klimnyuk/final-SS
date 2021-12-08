@@ -5,8 +5,8 @@ locals {
     tag = "v0.0"
     profile = "default"
     zones_count = "2"
-    repository = "https://github.com/klimnyuk/codebuild"
-    branch_pattern = "dev"
+    repository = "https://github.com/klimnyuk/final-SS"
+    branch_pattern = "master"
     dbuser = "admin"
     dbname = "mydatabase"
 
@@ -25,7 +25,7 @@ inputs = {
     dbname = local.dbname
 }
 
-/*remote_state {
+remote_state {
   backend = "s3"
 
   config = {
@@ -36,4 +36,4 @@ inputs = {
     dynamodb_table = format("tflock-%s-%s-%s", local.env, local.app_name, local.region)
     profile        = local.profile
   }
-}*/
+}
