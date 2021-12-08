@@ -28,31 +28,8 @@ variable "dbname" {
     type    = string
 }
 
-
-
-
-
-
-
 variable "port" {
-    default = 80
+  default = 80
 }
 
-variable "zones_count" {
-    default = 2
-}
-
-
-
-
-
-
-
-
-variable "fargate_memory" {
-  default = 512
-}
-
-variable "fargate_cpu" {
-  default = 256
-}
+variable "zones_count" {}

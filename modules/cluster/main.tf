@@ -2,6 +2,6 @@ provider "aws" {
   region  = var.region
 }
 
-terraform {
+/*terraform {
   backend "s3" {}
-}
+}*/

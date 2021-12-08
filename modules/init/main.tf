@@ -13,3 +13,15 @@ output "ecr_repository_url" {
 output "rds_database_url" {
   value = aws_db_instance.default.endpoint
 }
+
+output "subnets_ids" {
+  value = aws_subnet.private.*.id
+}
+
+output "vpc_id" {
+  value = aws_vpc.my_VPC.id
+}
+
+output "target_group_id" {
+    value = aws_alb_target_group.far.id
+}

@@ -13,7 +13,7 @@ resource "aws_ecs_task_definition" "service" {
   container_definitions = jsonencode([
     {
       name        = "worker"
-      image       = format("%s:%s", local.image_url, var.tag)
+      image       = format("%s:%s", var.ecr_repository_url, var.tag)
       cpu         = var.fargate_cpu
       memory      = var.fargate_memory
       networkMode = "awsvpc"
@@ -35,14 +35,33 @@ resource "aws_ecs_service" "worker" {
   launch_type     = "FARGATE"
 
   network_configuration {
-    security_groups  = [aws_security_group.my_SG.id]
-    subnets          = aws_subnet.private.*.id
+    security_groups  = [aws_security_group.my_SGroup.id]
+    subnets          = var.subnets_ids
     assign_public_ip = true
   }
 
   load_balancer {
-    target_group_arn = aws_alb_target_group.far.id
+    target_group_arn = var.target_group_id
     container_name   = "worker"
     container_port   = var.port
+  }
+}
+
+resource "aws_security_group" "my_SGroup" {
+  name   = "my_SGroup"
+  vpc_id = var.vpc_id
+
+  ingress {
+    protocol    = "tcp"
+    from_port   = var.port
+    to_port     = var.port
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    protocol    = "-1"
+    from_port   = 0
+    to_port     = 0
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }

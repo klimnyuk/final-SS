@@ -139,8 +139,4 @@ resource "aws_alb_target_group" "far" {
 resource "aws_db_subnet_group" "default" {
   name       = "main"
   subnet_ids = aws_subnet.private.*.id
-
-  tags = {
-    Name = "My DB subnet group"
-  }
 }
