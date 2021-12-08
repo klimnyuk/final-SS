@@ -46,7 +46,7 @@ resource "aws_codebuild_project" "example" {
     }
     environment_variable {
       name  = "dbpass"
-      value = "${aws_ssm_parameter.secret.value}"
+      value = "${var.dbpass}"
     }
     environment_variable {
       name  = "dbhost"
@@ -78,11 +78,4 @@ resource "aws_codebuild_webhook" "example" {
       pattern = var.branch_pattern
     }
   }
-}
-
-  resource "aws_ssm_parameter" "secret" {
-  name        = "/production/database/password/master"
-  description = "The parameter description"
-  type        = "SecureString"
-  value       = var.dbpass
 }
