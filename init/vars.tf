@@ -28,6 +28,7 @@ variable "dbuser" {
 }
 
 variable "dbpass" {
+  default = "value"
     type    = string
 }
 
