@@ -25,3 +25,7 @@ output "vpc_id" {
 output "target_group_id" {
     value = aws_alb_target_group.far.id
 }
+
+data "aws_ssm_parameter" "dbpass" {
+  name = "dbpass"
+}

@@ -12,7 +12,7 @@ resource "null_resource" "docker" {
     tag          = var.tag
     dbhost       = aws_db_instance.default.endpoint
     dbuser       = var.dbuser
-    dbpass       = var.dbpass
+    dbpass       = data.aws_ssm_parameter.dbpass.value
     dbname       = var.dbname
     }
   }

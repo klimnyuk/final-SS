@@ -13,12 +13,12 @@ data "aws_iam_policy_document" "ecs_task_execution_role" {
 }
 
 resource "aws_iam_role" "ecs_task_execution_role" {
-  name               = "ecs_task_execution_role"
+  name               = "ecs_task_execution_role-${var.app_name}-${var.env}"
   assume_role_policy = data.aws_iam_policy_document.ecs_task_execution_role.json
 }
 
 resource "aws_iam_role_policy" "ecs_task_execution_role" {
-  name_prefix = "ecs_iam_role_policy"
+  name_prefix = "ecs_iam_role_policy-${var.app_name}-${var.env}"
   role        = aws_iam_role.ecs_task_execution_role.id
   policy      = data.template_file.ecs_service_policy.rendered
 }
@@ -94,7 +94,7 @@ EOF
 }
 
 resource "aws_iam_role" "ecs_task_role" {
-  name               = "ecs_task_role"
+  name               = "ecs_task_role-${var.app_name}-${var.env}"
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -113,7 +113,7 @@ EOF
 }
 
 resource "aws_iam_role_policy" "ecs_task_role" {
-  name   = "ecs_task_role"
+  name   = "ecs_task_role-${var.app_name}-${var.env}"
   role   = aws_iam_role.ecs_task_role.id
   policy = <<EOF
 {

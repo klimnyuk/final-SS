@@ -36,6 +36,7 @@ variable "branch_pattern" {
   type = string
 }
 
-variable "dbpass" {
+/*variable "dbpass" {
   type    = string
 }
+*/

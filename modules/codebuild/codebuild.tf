@@ -46,7 +46,7 @@ resource "aws_codebuild_project" "example" {
     }
     environment_variable {
       name  = "dbpass"
-      value = "${var.dbpass}"
+      value = "${data.aws_ssm_parameter.dbpass.value}"
     }
     environment_variable {
       name  = "dbhost"

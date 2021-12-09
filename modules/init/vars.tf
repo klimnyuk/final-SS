@@ -30,6 +30,7 @@ variable "port" {
 
 variable "zones_count" {}
 
-variable "dbpass" {
+/*variable "dbpass" {
   type    = string
 }
+*/
