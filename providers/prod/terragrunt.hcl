@@ -6,7 +6,7 @@ locals {
     profile = "default"
     zones_count = "2"
     repository = "https://github.com/klimnyuk/final-SS"
-    branch_pattern = "dev"
+    branch_pattern = "prod"
     dbuser = "admin"
     dbname = "mydatabase"
 
