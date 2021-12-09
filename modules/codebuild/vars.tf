@@ -35,8 +35,3 @@ variable "env" {
 variable "branch_pattern" {
   type = string
 }
-
-/*variable "dbpass" {
-  type    = string
-}
-*/
