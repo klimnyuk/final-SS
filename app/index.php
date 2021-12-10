@@ -1,6 +1,6 @@
 <html>
 <body>
-<h1>Hello DevOps!!</h1>
+<h1>Hello DevOps</h1>
 <form action="welcome.php" method="post">
 Firstname: <input type="text" name="first_name"><br>
 Lastname: <input type="text" name="last_name"><br>

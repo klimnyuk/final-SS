@@ -29,8 +29,3 @@ variable "port" {
 }
 
 variable "zones_count" {}
-
-/*variable "dbpass" {
-  type    = string
-}
-*/
